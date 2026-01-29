@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For Ajita ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #f6f7f9, #eceff3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Floating hearts */
+.floating-hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  font-size: 15px;
+  opacity: 0.25;
+  animation: floatUp 12s linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(100vh); opacity: 0; }
+  20% { opacity: 0.3; }
+  to { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* Card */
+.card {
+  position: relative;
+  z-index: 10;
+  background: white;
+  width: 90%;
+  max-width: 360px;
+  padding: 30px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.15);
+  cursor: pointer;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.step {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.8s ease;
+}
+
+.step.show {
+  opacity: 1;
+  max-height: 200px;
+  margin-top: 12px;
+}
+
+.footer {
+  margin-top: 18px;
+  font-weight: 500;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Hearts -->
+<div class="floating-hearts">
+  <span class="heart" style="left:15%; animation-delay:0s;">❤️</span>
+  <span class="heart" style="left:35%; animation-delay:4s;">💖</span>
+  <span class="heart" style="left:60%; animation-delay:7s;">💕</span>
+  <span class="heart" style="left:80%; animation-delay:2s;">🤍</span>
+</div>
+
+<!-- Card -->
+<div class="card" id="card">
+  <div class="title">Hey Ajita 🤍</div>
+
+  <div class="step show">Tap to open this letter 💌</div>
+
+  <div class="step">I sent you a shirt that says <b>“I’m Ajita.”</b></div>
+
+  <div class="step">You’ll have to figure out why. 😉</div>
+
+  <div class="step">
+    There’s a little mystery around it —  
+    I know you’ll solve it.
+  </div>
+
+  <div class="step">
+    Even though we’re far apart,<br/>
+    you’re always in my heart 🤍
+  </div>
+
+  <div class="step">
+    <b>Will you be my Valentine?</b>
+    <div class="footer">— Amlana ❤️</div>
+  </div>
+</div>
+
+<script>
+let currentStep = 0;
+const steps = document.querySelectorAll('.step');
+
+document.getElementById('card').addEventListener('click', () => {
+  if (currentStep < steps.length - 1) {
+    currentStep++;
+    steps[currentStep].classList.add('show');
+  }
+});
+</script>
+
+</body>
+</html>
